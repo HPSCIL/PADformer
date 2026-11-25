@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-25",
+  "python": "3.12.14",
+  "packages": {
+    "torch": "2.14.0+cpu",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "openpyxl": "3.1.5",
+    "scikit-learn": "not installed; built-in metric fallback used"
+  },
+  "device": "cpu",
+  "data": "synthetic, 2 stations, 730 steps",
+  "ablation": "none_v2",
+  "epochs": 1,
+  "seed": 50,
+  "checks": [
+    "Python syntax",
+    "local Markdown links",
+    "training/validation/testing",
+    "checkpoint saved and loaded",
+    "144 finite prediction rows",
+    "station_block and latest-only time_block predictions agree"
+  ],
+  "limits": "No full real-data experiment or CUDA validation. Metrics used the existing NumPy fallback."
+}
