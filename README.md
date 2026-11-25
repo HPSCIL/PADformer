@@ -124,21 +124,7 @@ python predict.py --config results/Experiment_Config_demo.json --checkpoint resu
 
 例如执行完整 v2 与五个消融条件：
 
-```bash
-python main.py --num_nodes 2 --num_workers 0 --ablations none_v2 no_all no_freq_time_embed_v2 no_terrain_physics no_wind_physics no_arbitration_v2 --seeds 50
-```
 
-`--stage clean_five` 只运行上述五个消融条件，不包含 `none_v2`；`--stage pairing_suite` 比较标准配对、交换配对、两分支均为频域、两分支均为趋势的四种配置。多种子通过 `--seeds 50 123 42` 指定。以上命令应在实际数据准备好后运行。
-
-## Outputs and metrics
-
-每次训练生成 `results/custom_dataset_<tag>_<ablation>_seed<seed>/`，内含 `run.log`、`best_model.pth` 和 `metrics.csv`。结果根目录还生成 `Experiment_Config_<tag>.json`、逐次运行结果 CSV、按消融拆分的 CSV 和跨种子统计 CSV。
-
-指标包括 MAE、RMSE、MAPE 和 R²，分别计算 24/48/72 步单点及前 24/48/72 步窗口整体指标。`All_Metrics` 只保留真实值大于 0 的位置；MAPE 返回比例，百分数显示需乘 100。“Window Average”表示窗口内样本共同参与指标计算，不是先对预测序列求均值。不要把合成数据上的指标作为真实数据性能。
-
-## References and attribution
-
-仓库内容组织参考 [MSTVFFN repository](https://github.com/HPSCIL/MSTVFFN-multiple-air-pollutants-prediction)。参考模型的模块与本项目的对应关系见 [REPOSITORY_MAPPING.md](docs/REPOSITORY_MAPPING.md)。相关论文为 X. Zhou et al., *A multiscale spatial–temporal-variable feature fusion network for predicting multiple air pollutants*, Environment International (2025), [doi:10.1016/j.envint.2025.109864](https://doi.org/10.1016/j.envint.2025.109864)。
 
 `RevIN` 表示可逆实例标准化，相关原始研究为 Kim et al., *Reversible Instance Normalization for Accurate Time-Series Forecasting against Distribution Shift*, ICLR 2022。模型或类的重命名不改变所借用模块的来源。当前文件没有足够信息确认每个模块的具体代码来源和许可范围，公开发布前应由作者核实并补齐第三方许可声明。
 
