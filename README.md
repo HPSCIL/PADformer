@@ -125,7 +125,3 @@ python predict.py --config results/Experiment_Config_demo.json --checkpoint resu
 例如执行完整 v2 与五个消融条件：
 
 
-
-`RevIN` 表示可逆实例标准化，相关原始研究为 Kim et al., *Reversible Instance Normalization for Accurate Time-Series Forecasting against Distribution Shift*, ICLR 2022。模型或类的重命名不改变所借用模块的来源。当前文件没有足够信息确认每个模块的具体代码来源和许可范围，公开发布前应由作者核实并补齐第三方许可声明。
-
-PADformer 的正式论文题目、作者、DOI 和代码许可尚未在此代码包中确认，因此本 README 不填写虚构引用，也不替作者授予代码使用许可。
