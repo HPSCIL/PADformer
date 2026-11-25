@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="520" viewBox="0 0 1120 520" role="img" aria-labelledby="title desc">
+<title id="title">PADformer architecture</title><desc id="desc">Historical pollutants pass through RevIN and frequency/trend embedding. Terrain biases the frequency branch; historical wind and station coordinates bias the trend branch. Branch normalization and channel gating feed a decoder and inverse RevIN.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6" fill="#45566c"/></marker></defs>
+<rect width="1120" height="520" fill="#fff"/>
+<g font-family="Arial,sans-serif" text-anchor="middle" fill="#1d3048">
+<text x="560" y="40" font-size="25" font-weight="bold">PADformer · full v2</text>
+<g stroke="#98aec4" stroke-width="1.5">
+<rect x="20" y="220" width="155" height="80" rx="10" fill="#edf4fc"/><rect x="205" y="220" width="125" height="80" rx="10" fill="#edf4fc"/>
+<rect x="375" y="105" width="210" height="90" rx="10" fill="#e7f5ef"/><rect x="375" y="325" width="210" height="90" rx="10" fill="#e7f5ef"/>
+<rect x="635" y="105" width="205" height="90" rx="10" fill="#e7f5ef"/><rect x="635" y="325" width="205" height="90" rx="10" fill="#e7f5ef"/>
+<rect x="885" y="200" width="210" height="120" rx="10" fill="#fff1dc"/>
+</g>
+<g font-size="17"><text x="97" y="252">Historical pollutants</text><text x="97" y="277">[B, L, N × 4]</text><text x="267" y="265">RevIN</text>
+<text x="480" y="143">FFT embedding</text><text x="480" y="170">+ node embedding</text><text x="480" y="363">Trend embedding</text><text x="480" y="390">+ node embedding</text>
+<text x="737" y="143">Terrain branch</text><text x="737" y="170">attention + terrain bias</text><text x="737" y="363">Wind branch</text><text x="737" y="390">attention + wind bias</text>
+<text x="990" y="234">Branch LayerNorm</text><text x="990" y="265">Channel gate fusion</text><text x="990" y="296">Decoder + projection</text>
+<text x="737" y="80">Terrain matrices [C, N, N]</text><text x="737" y="455">Historical wind + coordinates</text>
+<text x="990" y="370">Inverse RevIN</text><text x="990" y="401">Forecast [B, H, N × 4]</text></g>
+<g fill="none" stroke="#45566c" stroke-width="2" marker-end="url(#arrow)">
+<path d="M175 260 H205"/><path d="M330 260 H350 V150 H375"/><path d="M350 260 V370 H375"/>
+<path d="M585 150 H635"/><path d="M585 370 H635"/><path d="M737 87 V105"/><path d="M737 430 V415"/>
+<path d="M840 150 H860 V230 H885"/><path d="M840 370 H860 V290 H885"/><path d="M990 320 V347"/>
+</g><text x="560" y="496" font-size="13" fill="#60748c">L: historical steps · H: forecast steps · N: stations · C: terrain channels · only historical wind is used</text>
+</g></svg>
